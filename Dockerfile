@@ -1,5 +1,7 @@
 FROM alpine:latest
 
+ARG TARGETPLATFORM
+
 RUN case ${TARGETPLATFORM} in \
          "linux/amd64")  ARCH=amd64  ;; \
          "linux/arm64")  ARCH=arm64  ;; \
