@@ -12,6 +12,10 @@ jobs:
       -
         name: Checkout
         uses: actions/checkout@v2
+      - 
+        name: Assign release version from version.properties to Env variable
+        run: |
+           cat version.properties >> $GITHUB_ENV
       -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v1
@@ -30,5 +34,6 @@ jobs:
         with:
           context: .
           push: true
-          tags: cpatscheider/snmp_exporter:latest
-          platforms: linux/amd64, linux/arm64        
+          tags: cpatscheider/snmp_exporter:latest,cpatscheider/snmp_exporter:${{ env.VERSION }}
+          platforms: linux/amd64, linux/arm64     
+          build-args: VERSION=${{ env.VERSION }}          
