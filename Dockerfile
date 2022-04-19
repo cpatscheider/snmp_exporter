@@ -11,7 +11,7 @@ RUN case ${TARGETPLATFORM} in \
          "linux/386")    ARCH=i386   ;; \
     esac \
     && cd /tmp \
-    && wget https://github.com/prometheus/snmp_exporter/releases/download/v0.20.0/snmp_exporter-${VERSION}.linux-${ARCH}.tar.gz \
+    && wget https://github.com/prometheus/snmp_exporter/releases/download/v${VERSION}/snmp_exporter-${VERSION}.linux-${ARCH}.tar.gz \
     && mkdir /usr/bin/snmp_exporter \
     && tar -xzvf /tmp/snmp_exporter-${VERSION}.linux-${ARCH}.tar.gz -C /usr/bin/snmp_exporter --strip-components 1\
     && chmod 510 /usr/bin/snmp_exporter/snmp_exporter \
